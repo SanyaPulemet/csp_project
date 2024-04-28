@@ -1,0 +1,13 @@
+<a href="{% url 'user_logout' %}">Logout</a>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form}}
+    {{tag_form}}
+    <button type="submit">BLANK</button>
+</form>
+{{user_tags}}
+{{ user.username }}
+{{ user.description }}
+<img src="{{user.image.url}}">
+{{ user.id }}
+{{ user.email }}

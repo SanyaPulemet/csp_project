@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>file_id</th>
+            <th>file</th>
+            <th>action</th>
+        </tr>
+        {% for file in files %}
+        <tr>
+            <td>{{file.id}}</td>
+            <td>{{file.path}}</td>
+            <form method="GET" action="{% url 'file_page' file.id %}">
+                {% csrf_token %}
+            <td><button type="submit">file_page</button></td>
+            </form>
+            <form method="POST" action="{% url 'delete' file.id %}">
+                {% csrf_token %}
+            <td><button type="submit">delete this</button></td>
+            </form>
+            <td><a href="{file.path}" download> Download Document не работает ниче </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

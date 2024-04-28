@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% load sass_tags %}
+{% block head %}
+<head>
+    {% block links %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200&family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_reg.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css"/>
+    {% endblock %}
+
+    {% block meta%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+</head>
+{% endblock %}
+
+{% block body %}
+<body style="background: linear-gradient(252.44deg, rgba(255, 125, 125, 0.45) 0%, rgba(163, 207, 38, 0.45) 100%), #D3DAFF;">
+    <header style="display: flex; align-items: center;">
+        <a class="link text" href="#">
+            <span>STORAGE</span>
+            <img src="{% static 'images/icons/cloud_white_v5.png' %}" style="width: 63px;
+            height: 39px; vertical-align: baseline;">
+            <span>CLOUD</span>
+        </a>
+
+        <div class="center_aligner" id="middle-center_aligner">
+            <a class="center_aligner link text" href="https://www.youtube.com/@ooo0eve0ooo">Music</a>
+            <span class="center_aligner text">|</span>
+            <a class="center_aligner link text" href="#">Video</a>
+            <span class="center_aligner text">|</span>
+            <a class="center_aligner link text" href="#">Other</a>
+        </div>
+
+        <div class="dropdown link" style="height:100%;">
+          <button class="dropbtn text" style="font-family: 'IBM Plex Sans Devanagari';font-style: normal;font-weight: 400;font-size: 36px;height:100%;">My account</button>
+            <div class="dropdown-content">
+                <a href="#" class="text">Profile</a>
+                <a href="{% url 'user_logout' %}" class="text">Logout</a>
+            </div>
+        </div>
+    </header>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="my-container mt-5">
+                <div class="row">
+
+
+
+                    <div class="gy-5 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 mx-auto radio-left">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="titles">Page image</p>
+                                <input type = "button" value = "Upload"
+                                 onclick ="javascript:document.getElementById('id_image').click();" id="select_image">
+                                <input type="file" name="image" accept="image/*" style='visibility: hidden;' required="" id="id_image"/>
+                            </div>
+                            <div class="col-md-12">
+                                {% csrf_token %}
+                                <div>
+                                    {{ upload_form.link_on }}
+                                    <span>link access</span>
+                                </div>
+                                <div>
+                                    {{ upload_form.comments_on }}
+                                    <span>disable comments</span>
+                                </div>
+                                <div>
+                                    {{ upload_form.public_on }}
+                                    <span>public</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gy-5 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 mx-auto wrap">
+                        <div>
+                            <p class="titles">Title</p>
+                            {{ upload_form.title }}
+                        </div>
+                        <div>
+                            <p class="titles" style="margin-top:10px;">Upload files</p>
+                            <div class="file-input-container-wrapper">
+                                <div class="file-input-container">
+                                    {{ upload_form.files }}
+                                    <img src="{% static 'images/icons/upload.png' %}" alt="" style="width: 128px; height: 128px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="buttons-wrap">
+                            <div class="buttons-block">
+                            <button type="submit" id="green-button">Upload</button>
+                            <button type="submit" id="red-button" onclick ="javascript:location.reload();">Cancel</button>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </form>
+</body>
+{% endblock %}
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+.file-input-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.file-input-container-wrapper{
+    background-image: url("../images/backgrounds/background_mask_v2.png");
+    width: 75%;
+    border-radius: 5px;
+}
+
+@media (max-width: 991px ) {
+    .wrap {
+    text-align: center;
+}
+.file-input-container-wrapper {
+    width: 100%;
+}
+}
+
+@media (min-width: 1200px ) {
+  .file-input-container-wrapper{
+    height: 550px;
+}
+  .file-input-container{
+    height: 550px;
+}
+}
+
+@media (max-width: 1200px ) {
+  .file-input-container-wrapper{
+    height: 350px;
+}
+  .file-input-container{
+    height: 350px;
+}
+}
+
+.file-input-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#select_image{
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 55px;
+}
+
+.radio-left{
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 36px;
+    line-height: 55px;
+    line-height: 1.1;
+}
+
+.radio-left div{
+    margin-top: 15px;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding-left: 15px;
+
+}
+
+input[type=checkbox] {
+         position: relative;
+	       cursor: pointer;
+	       width: 30px;
+            height: 30px;
+
+    }
+    input[type=checkbox]:before {
+         content: "";
+         display: block;
+         position: absolute;
+         width: 30px;
+            height: 30px;
+         top: 0;
+         left: 0;
+         border: 2px solid gray;
+         border-radius: 3px;
+         background: gray;
+}
+    input[type=checkbox]:checked:after {
+         content: "";
+         display: block;
+         width: 22px;
+         height: 38px;
+         border: solid white;
+         border-width: 0 4px 3px 0;
+         -webkit-transform: rotate(35deg);
+         background-image: url("../images/icons/tick.png");
+         -ms-transform: rotate(35deg);
+         transform: rotate(35deg);
+         position: absolute;
+         top: -12px;
+         left: 0px;
+         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.titles{
+    margin-bottom:0px;
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 55px;
+}
+
+#id_title{
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 5px;
+    width:75%;
+    height: 63px;
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 55px;
+    color: #FFFFFF;
+}
+
+.buttons-block{
+    width: 75%;
+    margin-top:38px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px ) {
+    #buttons-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+}
+
+#green-button{
+    background: #039900;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    height: 65px;
+    width: 49%;
+
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 55px;
+}
+
+#red-button{
+    background: #FF6262;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    height: 65px;
+    width: 49%;
+
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 55px;
+}

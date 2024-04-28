@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+{% load static %}
+{% load sass_tags %}
+
+{% block links %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200&family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles_reg.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block meta%}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src = "{%  static 'javascript/2.js' %}"></script>
+{% endblock %}
+
+{% block category_buttons %}
+<button class="center_aligner link text" id="musicBTN" style="margin-left: 50px; background: none; border: none;">Music</button>
+<span class="center_aligner text">|</span>
+<button class="center_aligner link text" id="videoBTN"  style="margin-left: 65px; background: none; border: none;">Video</button>
+<span class="center_aligner text">|</span>
+<button class="center_aligner link text" id="allBTN" style="margin-left: 65px; background: none; border: none;">All</button>
+{% endblock %}
+
+    {% block extendable %}
+    <div class="my-container my-container-main">
+        <div>
+            <p class="top_text" style="margin-bottom: 64px; margin-top: 64px;">
+                Welcome, visitor! There you can store any data, except viruses and bla bla bla... <br>
+                Some text here else!
+            </p>
+        </div>
+        <div style="margin-bottom: 38px;">
+            <div class="searchfield_holder">
+                <div class="searchfield_holder_sl" style="min-width:100%;">
+                    <form class="input-group text searchfield_form">
+                        <input class="searchfield" type="text" placeholder="Enter text here...">
+                    </form>
+                    <button style="width: 59px; height: 59px; background: none; border: none; margin-right: 17px;">
+                        <img src="{% static 'images/icons/search.png' %}" alt="find" style="width: 59px; height: 59px;">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-container my-container-main">
+        <div id="content">
+    
+        </div>
+    
+    </div>
+    {% for i in page_range %}
+    <a style="margin-left: 5px; font-size: 20px;" id = "table_id_{{i}}" href="{{i}}">{{i}}</a>
+    {% endfor %}
+    {% endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+{% load static %}
+{% load sass_tags %}
+
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css"/>{% endblock %}
+
+
+{% block body %}
+<body style="background: linear-gradient(72.44deg, rgba(255, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(252.44deg, rgba(5, 0, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%), #618F8A;">
+{% endblock %}
+
+{% block user_button %}
+    <a class="center_aligner link text" href="{% url 'user_logout' %}">Logout</a>
+{% endblock %}
+
+{% block extendable %}
+    <div class="my-container my-container-main profile-container-bg" style="margin-bottom:80px;">
+        <div style="display:block;">
+            <div class="user-info" id="block2" style="display: none;">
+                <form method="POST" enctype="multipart/form-data" action="{% url 'user_data_change_func' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12" style="margin-bottom:10px;">
+                            <span class="micro-title" style="margin-left:8%;">Tags:</span><input type="text" name="tag_field" maxlength="128" required="" id="id_tag_field" value="{{ user_tags }}" class="tags-field">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-4 mx-auto">
+                            <div>
+                                <div class="image-container">
+                                    <div class="image-mask">
+                                        <img src="{{user.image.url}}">
+                                        <img src="{% static 'images/icons/upload.png' %}" alt="" style="width: 128px; height: 128px;">
+                                        {{ user_form.image }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 mx-auto">
+                            <div class="text-info-block-wrap">
+                                <div class="text-info-block">
+                                    <span class="username">{{ user.username }}</span>
+                                    <p class="micro-title" style="margin-top:10px;">Contact information<br class="base-text">email: <span class="desc-field-text">{{ user.email }}</span> </br></p>
+                                    <p class="micro-title" style="margin-top:15px; margin-bottom:0px;">About me</p>
+                                    <textarea type="text" name="description" required="" id="id_description" class="desc-field">{{ user.description }}</textarea>
+                                </div>
+                                <button type="submit" class="subm-button">Submit changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="user-info" id="block1">
+                <div class="row">
+                    <div class="col-12" style="margin-bottom:10px;margin-top:25px;">
+                        <span class="micro-title" style="margin-left:8%;">Tags: </span> <span class="micro-title" >{{ user_tags }}</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-4 mx-auto">
+                        <div class="image-container">
+                            <div class="image-mask"><img src="{{user.image.url}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 mx-auto">
+                        <div class="text-info-block-wrap">
+                            <div class="text-info-block">
+                                <span class="username">{{ user.username }}</span>
+                                <p class="micro-title" style="margin-top:10px;">Contact information<br class="base-text">email: <span class="desc-field-text">{{ user.email }}</span> </br></p>
+                                <p class="micro-title" style="margin-top:15px; margin-bottom:0px;">About me</p>
+                                <p class="desc-field-text">{{ user.description }}</p>
+                            </div>
+                            <button class="subm-button" onclick="toggleBlocks()">Change profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:51px;">
+            <div class="top-layer">
+                <div>
+                    <span>My uploads</span>
+                    <button class="top-layer-btn" onclick="myFunction()">Add files</button>
+                </div>
+            </div>
+            <div class="items-below">
+                <div id="posts" class="row">
+                    {% for page in user_pages %}
+                    <div class="col-lg-6 col-md-6 col-sm-12" style="margin-bottom:15px; padding: 15px;">
+                        <a href="{% url 'page' page.id %}" class="card-link">
+                            <div class="card-body-holder">
+                                <div class="my-card-body-profile">
+                                    <div class="image-wrapper">
+                                        <img src="{{ page.image.url }}" class="my-card-img" alt="">
+                                    </div>
+                                    <p class="card-text">{{ page.title }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function toggleBlocks() {
+    var block1 = document.getElementById("block1");
+    var block2 = document.getElementById("block2");
+
+    block1.style.display = "none";
+    block2.style.display = "block";
+  }
+  function myFunction() {
+  location.replace("../upload")
+  }
+</script>
+
+{% endblock %}
+</body>
+</html>

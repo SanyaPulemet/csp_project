@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>id</th>
+      <th>funcs</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.id }}</td>
+        <td>
+          <a href="{% url 'ksp2' user.id %}">подробнее</a>
+          <a href="{% url 'ksp3' user.id %}">изменить</a>
+            <form action="{% url 'ksp4' user.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">delete</button>
+            </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

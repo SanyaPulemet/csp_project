@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block extendable %}
+{% load static %}
+<div> <!-- div по приколу -->
+    <div class="my-container mt-5 reg-holder" id="my-container-login">
+        <div class="row" >
+            <div class="gy-5 col-xs-11 col-sm-10 col-md-10 col-lg-5 mx-auto form-holder">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="wrapper">
+                        {% for field in form %}
+                        <div class="fieldWrapper">
+                            {{ field }}
+                        </div>
+                        <span class="help" style="align-self: flex-start;">{{ field.errors }}</span>
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endfor %}
+                        <span class="help" style="margin-bottom:15px;">{{ error_message }}</span>
+                        <button class="sign-up-btn" type="submit">Log in</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,156 @@
+.spans {
+  font-size: 36px;
+  font-family: "IBM Plex Sans Devanagari";
+  color: white; }
+
+@media (min-width: 1900px) {
+  .my-container-xxl, .my-container-xl, .my-container-lg, .my-container-md, .my-container-sm, .my-container {
+    max-width: 1550px; } }
+
+@media (max-width: 768px) {
+  .my-container-md, .my-container-sm, .my-container {
+    max-width: 768px; } }
+
+@media (max-width: 767px) {
+  #hide_me_main_page {
+    display: none; } }
+
+.icon_and_text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  margin-top: 72px; }
+
+.top_text {
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 55px;
+  color: #FFFFFF; }
+
+a {
+  text-decoration: none; }
+
+.searchfield_holder {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 5px;
+  height: 100px; }
+
+.searchfield_holder_sl {
+  display: flex;
+  align-items: center; }
+
+.searchfield_form {
+  padding-bottom: 0px;
+  padding-top: 0px;
+  border-bottom: 1px solid #ccc; }
+
+.searchfield {
+  padding-left: 12px;
+  background: none;
+  border: none;
+  color: white; }
+
+@media (max-width: 1400px) {
+  #search_bar_buttons {
+    display: none; } }
+
+.my-card-body {
+  background-image: url("../images/backgrounds/background_mask_v2.png");
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%; }
+
+.card-body-holder {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(5px);
+  border-radius: 5px; }
+
+.card-body-holder:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transition: 1s; }
+
+.card-body-holder:not(:hover) {
+  transition: 1s; }
+
+.card-text {
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 55px;
+  color: #FFFFFF; }
+
+.my-card-img {
+  padding-top: 33px;
+  width: 100%;
+  height: 100%; }
+
+@media (min-width: 1900px) {
+  .my-card-img {
+    height: 364.986px; } }
+
+@media (max-width: 1900px) {
+  .my-card-img {
+    height: 364.986px; } }
+
+@media (max-width: 1400px) {
+  .my-card-img {
+    height: 262.5px; } }
+
+@media (max-width: 1200px) {
+  .my-card-img {
+    height: 217.5px; } }
+
+@media (max-width: 992px) {
+  .my-card-img {
+    height: 247.5px; } }
+
+.image-wrapper {
+  max-width: 75%;
+  margin: 0 auto; }
+
+.dropbtn {
+  background: none;
+  color: white;
+  padding: 16px;
+  padding-right: 26px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 0px; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  display: none;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.45);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%; }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; }
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+/*# sourceMappingURL=main.css.map */

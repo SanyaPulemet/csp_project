@@ -1,0 +1,43 @@
+header {
+    width: 100%;
+    height: 125px;
+    background: rgba(0, 0, 0, 0.45);
+    margin: 0;
+    justify-content: space-between;
+}
+
+.center_aligner {
+    height: 100%; 
+    justify-content: center; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 893px) {
+  #middle-center_aligner {
+    display: none;
+  }
+}
+
+.text {
+    font-family: 'IBM Plex Sans Devanagari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 55px;
+    color: #FFFFFF;
+    mix-blend-mode: screen;
+    margin: 0px 20px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+
+/*body { фон бадика для маина
+    background: linear-gradient(72.44deg, rgba(255, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(252.44deg, rgba(5, 0, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%), #81618F;
+    margin: 0;
+}
+

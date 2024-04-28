@@ -1,0 +1,71 @@
+<html>
+{% load static %}
+    <head>
+        {% block links %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200&family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_reg.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% endblock %}
+        <script
+              src="https://code.jquery.com/jquery-3.4.1.min.js"
+              integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous">
+
+        </script>
+    </head>
+    <body>
+
+<div id="posts" class="row">
+</div>
+
+<!-- loop pagination -->
+{% for i in page_range %}
+<a class="ya_ne_dolbaeb link text" style="margin-left: 5px; font-size: 20px;" id = "table_id_{{i}}" href="{{i}}">{{i}}</a>
+{% endfor %}
+
+
+<script>
+$('.ya_ne_dolbaeb').click(function(event){
+    event.preventDefault();
+    var page_n = $(this).attr('href');
+    // ajax
+    $.ajax({
+            type: "POST",
+            url: "{% url 'pagination_p' %}", // name of url
+            data : {
+            text: BTN_PARAMS, // button_type
+            page_n : page_n, //page_number
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function (resp) {
+            $('#posts').html('')
+           $.each(resp.results, function(i, val) {
+            let page = '\
+            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:15px; padding: 15px;">\
+                <a href="page/'+val.id+'" class="card-link">\
+                <div class="card-body-holder">\
+                    <div class="my-card-body">\
+                        <div class="image-wrapper">\
+                            <img src="media/'+val.image+'" class="my-card-img" alt="">\
+                        </div>\
+                        <p class="card-text">'+val.title+'</p>\
+                    </div>\
+                </div>\
+                </a>\
+            </div>'
+            
+            $('#posts').append(page)
+           });
+        },
+        error: function () {}
+    }); //
+
+});
+</script>
+</body>
+</html>
